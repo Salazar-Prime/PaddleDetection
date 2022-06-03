@@ -1,0 +1,19 @@
+metric: COCO
+num_classes: 4
+
+TrainDataset:
+  !COCODataSet
+    image_dir: data
+    anno_path: train.json 
+    dataset_dir: dataset/fourWeedsDataset
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  !COCODataSet
+    image_dir: data 
+    anno_path: val.json
+    dataset_dir: dataset/fourWeedsDataset
+
+TestDataset:
+  !ImageFolder
+    anno_path: val.json 
